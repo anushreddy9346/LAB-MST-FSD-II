@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Role-Based Access Portal</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Login Form -->
+    <div id="login-form-container" class="card">
+      <div class="card-header">
+        <h1>Portal Login</h1>
+        <p>Sign in with your User ID</p>
+      </div>
+
+      <form id="login-form" onsubmit="return false;">
+        <div class="form-group">
+          <label for="username">User ID / Username</label>
+          <input type="text" id="username" placeholder="Enter User ID or Username" autocomplete="off" required />
+          <div id="error-message" class="error-message"></div>
+        </div>
+
+        <div class="button-group">
+          <button type="button" id="login-admin-btn" class="btn btn-admin">Login as Admin</button>
+          <button type="button" id="login-viewer-btn" class="btn btn-viewer">Login as Viewer</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Dashboard / Welcome Screen -->
+    <div id="dashboard-container" class="card card-wide hidden">
+      <div class="card-header">
+        <h1 id="welcome-message">Welcome, <span id="user-display"></span> (<span id="role-display"></span>)</h1>
+      </div>
+
+      <div class="content-area">
+        <!-- Write Section (Both Admin and Viewer can Write) -->
+        <div class="section-box">
+          <h2>Create Content (Write Access)</h2>
+          <div class="input-row">
+            <input type="text" id="post-input" placeholder="Type new post or content here..." />
+            <button type="button" id="add-post-btn" class="btn btn-primary">Add Post</button>
+          </div>
+        </div>
+
+        <!-- Read & Delete Section -->
+        <div class="section-box">
+          <h2>Content Feed (Read Access)</h2>
+          <div id="posts-list" class="posts-list">
+            <!-- Posts list rendered dynamically -->
+          </div>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <button type="button" id="logout-btn" class="btn btn-secondary">Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
